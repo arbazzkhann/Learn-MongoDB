@@ -74,3 +74,8 @@ MongoDB is an **open-source**, **document-oriented**, **nosql** database managem
     * MongoDB is a **open-source** with a **large comunity support**
     * **Regular updates**, **imporvement** and **support**.
 
+
+## Required files and Softwares:
+1. MongoDB Community Server: [Download](https://www.mongodb.com/try/download/community)
+2. MongoDB Shell: [Download](https://www.mongodb.com/try/download/shell)
+3. MongoDB Database Tools: [Download](https://www.mongodb.com/try/download/database-tools)
