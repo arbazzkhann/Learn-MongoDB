@@ -79,3 +79,69 @@ MongoDB is an **open-source**, **document-oriented**, **nosql** database managem
 1. MongoDB Community Server: [Download](https://www.mongodb.com/try/download/community)
 2. MongoDB Shell: [Download](https://www.mongodb.com/try/download/shell)
 3. MongoDB Database Tools: [Download](https://www.mongodb.com/try/download/database-tools)
+
+
+## Some Basic MongoDB Commands:
+
+### 1. Check Version:
+```bash
+mongod --version
+```
+
+---
+
+### 2. Starting MongoDB Server:
+```bash
+mongosh
+```
+
+---
+
+### 3. Showing Databases:
+```bash
+show dbs
+# OR
+show databases
+```
+
+---
+
+### 4. Creating Database:
+```bash
+use <database_name>
+```
+
+---
+
+### 5. Deleting Database:
+```bash
+db.dropDatabase()
+```
+
+---
+
+### 6. Showing Collections:
+```bash
+show collections
+```
+
+---
+
+### 7. Creating Collection:
+```bash
+db.createCollection('<collection_name>')
+```
+
+---
+
+### 8. Deleting Collection:
+```bash
+db.<collection_name>.drop()
+```
+
+---
+
+### 9. Showing Documents:
+```bash
+db.<collection_name>.find()
+```
