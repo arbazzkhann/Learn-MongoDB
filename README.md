@@ -75,6 +75,41 @@ MongoDB is an **open-source**, **document-oriented**, **nosql** database managem
     * **Regular updates**, **imporvement** and **support**.
 
 
+## JSON vs BSON:
+* In MongoDB, we write in JSON format only but behind the scene data is stored in BSON (**Binary JSON**) format, a **binary representation of JSON**.
+
+* By utilizing BSON, MongoDB can achieve **higher read** and **write speeds**, **reduced storage requirements**, and **improved data manipulation capabilities**, making it well-suited for **handling large and complex datasets** while **maintaining performance efficiency**.
+
+### JSON:
+```json
+{
+  "name": "Arbaz",
+  "age": 22,
+  "isStudent": true,
+  "scores": [88, 95],
+  "address": {
+    "city": "Delhi"
+  }
+}
+```
+
+### BSON:
+```bson
+\x31\x00\x00\x00
+\x02name\x00\x06\x00\x00\x00Arbaz\x00
+\x10age\x00\x17\x00\x00\x00
+\x08isStudent\x00\x01
+\x04scores\x00\x15\x00\x00\x00
+\x10\x00\x58\x00\x00\x00
+\x10\x01\x5F\x00\x00\x00
+\x00
+\x03address\x00\x13\x00\x00\x00
+\x02city\x00\x06\x00\x00\x00Delhi\x00
+\x00
+\x00
+```
+
+
 ## Required files and Softwares:
 1. MongoDB Community Server: [Download](https://www.mongodb.com/try/download/community)
 2. MongoDB Shell: [Download](https://www.mongodb.com/try/download/shell)
@@ -148,6 +183,8 @@ db.<collection_name>.find()
 
 ---
 
+## Insert Documents:
+
 ### Inserting Document (Single):
 ```js
 db.<collection_name>.insertOne({
@@ -181,36 +218,9 @@ db.<collection_name>.findOne({key: value});
 ```
 
 
-## JSON vs BSON:
-* In MongoDB, we write in JSON format only but behind the scene data is stored in BSON (**Binary JSON**) format, a **binary representation of JSON**.
 
-* By utilizing BSON, MongoDB can achieve **higher read** and **write speeds**, **reduced storage requirements**, and **improved data manipulation capabilities**, making it well-suited for **handling large and complex datasets** while **maintaining performance efficiency**.
 
-### JSON:
-```json
-{
-  "name": "Arbaz",
-  "age": 23,
-  "isStudent": true,
-  "scores": [88, 95],
-  "address": {
-    "city": "Delhi"
-  }
-}
-```
 
-### BSON:
-```bson
-\x31\x00\x00\x00
-\x02name\x00\x06\x00\x00\x00Arbaz\x00
-\x10age\x00\x17\x00\x00\x00
-\x08isStudent\x00\x01
-\x04scores\x00\x15\x00\x00\x00
-\x10\x00\x58\x00\x00\x00
-\x10\x01\x5F\x00\x00\x00
-\x00
-\x03address\x00\x13\x00\x00\x00
-\x02city\x00\x06\x00\x00\x00Delhi\x00
-\x00
-\x00
-```
+
+
+
