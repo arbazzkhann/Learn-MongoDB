@@ -165,3 +165,19 @@ db.<collection_name>.insertMany([
 ```
 
 
+## Read Operations:
+1. **find()**:
+
+Syntax:
+```js
+db.<collection_name>.find({key: value});
+```
+
+2. **findOne()**:
+
+Syntax:
+```js
+db.<collection_name>.findOne({key: value});
+```
+
+
