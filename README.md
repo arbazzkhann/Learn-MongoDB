@@ -70,7 +70,7 @@ MongoDB is an **open-source**, **document-oriented**, **nosql** database managem
     * Perform **advanced data transformations** and **analysis**.
     * **Process data using multiple pipelines stages**.
 
-* **Open-Source Community**;
+* **Open-Source Community**:
     * MongoDB is a **open-source** with a **large comunity support**
     * **Regular updates**, **imporvement** and **support**.
 
@@ -145,3 +145,23 @@ db.<collection_name>.drop()
 ```bash
 db.<collection_name>.find()
 ```
+
+---
+
+### Inserting Document (Single):
+```js
+db.<collection_name>.insertOne({
+    "field1":"value1",
+    "field2":"value2"
+});
+```
+
+### Inserting Document (Multiple):
+```js
+db.<collection_name>.insertMany([
+    {"field1":"value1", "filed2": "value2", ...},
+    {"field1":"value1", "filed2": "value2", ...}
+])
+```
+
+
