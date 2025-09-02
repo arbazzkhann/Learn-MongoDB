@@ -76,9 +76,12 @@ MongoDB is an **open-source**, **document-oriented**, **nosql** database managem
 
 
 ## JSON vs BSON:
-* In MongoDB, we write in JSON format only but behind the scene data is stored in BSON (**Binary JSON**) format, a **binary representation of JSON**.
+* In MongoDB, **we write data in JSON**, but internally, it is **stored in BSON** (Binary JSON).
 
-* By utilizing BSON, MongoDB can achieve **higher read** and **write speeds**, **reduced storage requirements**, and **improved data manipulation capabilities**, making it well-suited for **handling large and complex datasets** while **maintaining performance efficiency**.
+* BSON allows: <br/>
+✔️ Faster read & write operations <br/>
+✔️ Reduced storage usage <br/>
+✔️ Better handling of complex data structures <br/>
 
 ### JSON:
 ```json
@@ -217,10 +220,21 @@ Syntax:
 db.<collection_name>.findOne({key: value});
 ```
 
+## When to use Quotes and when not?
+* **Special Characters**:
+If a field name *contains special characters* or *spaces*, or *starts with a numeric digit*, using ***quotes is necessory***.
 
+* **Reserve Words**:
+If a field name is a reserved keyword in MongoDB, use quotes distinguish it from the reserved keyword.
 
-
-
-
-
-
+### Examples:
+```js
+db.students.insertOne({
+  "1name": "Arbaz",     // starts with a number
+  "full name": "Khan",  // contains space
+  "e-mail": "arbaz@example.com" // contains special character (-)
+  "type": "Admin",   // reserved keyword
+  "key": "12345",    // reserved keyword
+  "db": "collegeDB"  // reserved keyword
+})
+```
