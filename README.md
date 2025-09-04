@@ -249,3 +249,36 @@ When executing bulk write operations, **ordered** and **Unordered** determine th
 * **Unordered Inserts**:
     * When executing bulk write operations with unordered flag, MongoDB ***processing after encountering an error***.
     * **db.<collection_name>.insertMany([doc1, doc2, ...], {ordered: false});**
+
+### Examples:
+
+#### Default Behaviour (*ordered: true*):
+If one insert fails, MongoDB stops inserting the rest.
+
+```js
+db.students.insertMany(
+  [
+    { _id: 1, name: "Arbaz" },
+    { _id: 1, name: "Duplicate ID" } // ❌ duplicate _id (error)
+    { _id: 2, name: "Salman" },
+  ]
+)
+// Only first will inserted, second fails → stops further execution.
+```
+
+#### With (*ordered: false*):
+If one insert fails, MongoDB continues inserting the rest.
+
+```js
+db.students.insertMany(
+  [
+    { _id: 3, name: "Ali" },
+    { _id: 3, name: "Duplicate ID" }, // ❌ duplicate error
+    { _id: 4, name: "Khan" }
+  ],
+  { ordered: false }
+)
+// Ali ✅ inserted
+// Duplicate ❌ skipped
+// Khan ✅ still inserted
+```
