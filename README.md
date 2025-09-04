@@ -2,6 +2,7 @@
 
 ## What is MongoDB?
 MongoDB is an **open-source**, **document-oriented**, **nosql** database management system.
+MongoDB is case-sensitive.
 
 
 ## What is a Document Database?
@@ -282,3 +283,6 @@ db.students.insertMany(
 // Duplicate ❌ skipped
 // Khan ✅ still inserted
 ```
+
+
+##
