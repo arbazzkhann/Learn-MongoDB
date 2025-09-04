@@ -238,3 +238,14 @@ db.students.insertOne({
   "db": "collegeDB"  // reserved keyword
 })
 ```
+
+
+## Orderd and Unordered Inserts:
+When executing bulk write operations, **ordered** and **Unordered** determine the batch behaviour.
+* **Ordered Inserts**:
+    * Default behavior is ordered, where MongoDB **stops on the first error**.
+    * **db.<collection_name>.insertMany([doc1, doc2, ...]);**
+
+* **Unordered Inserts**:
+    * When executing bulk write operations with unordered flag, MongoDB ***processing after encountering an error***.
+    * **db.<collection_name>.insertMany([doc1, doc2, ...], {ordered: false});**
