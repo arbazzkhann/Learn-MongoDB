@@ -321,3 +321,14 @@ Eample:
 ```js
 db.products.find({'price': {$gte: 200}});
 ```
+
+Example of In Operator:
+```js
+//in (In) Operator
+//it will gives only given values data
+db.products.find({'price': {$in: [200, 245, 399]}});
+
+//nin (Not In) operator
+//it will gives data excepts given values
+db.products.find({'price': {$nin: [200, 245, 399]}});
+```
