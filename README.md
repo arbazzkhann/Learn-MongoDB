@@ -285,4 +285,21 @@ db.students.insertMany(
 ```
 
 
-##
+## Importing JSON in MongoDB:
+
+If json is ***not in array***:
+```js
+mongoimport <json_file_name.json> -d <database_name> -c <collection_name>;
+```
+
+If json is ***inside array***:
+```js
+mongoimport <json_file_name.json> -d <database_name> -c <collection_name>;
+```
+
+If json is ***array of object***:
+```js
+mongoimport <json_file_name.json> -d <database_name> -c <collection_name> --jsonArray;
+```
+
+NOTE: *--jsonArray* accepts the import of data expressed with multiple MongoDB documents within a single JSON array.
