@@ -300,3 +300,24 @@ mongoimport <json_file_name.json> -d <database_name> -c <collection_name> --json
 NOTE: *--jsonArray* accepts the import of data expressed with multiple MongoDB documents within a single JSON array.
 
 
+## Operators:
+
+### Comparison Operators:
+$eq => Equal to
+$neq => Not equal to
+$gt => Greater then
+$gte => Greater then equal to
+$lt => Less then
+$lte => Less then equal to
+$in => In
+$nin => Not in
+
+
+```js
+db.<collection_name>.find({'fieldName': {$<operator>: <value>}});
+```
+
+Eample:
+```js
+db.products.find({'price': {$gte: 200}});
+```
