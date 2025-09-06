@@ -332,3 +332,25 @@ db.products.find({'price': {$in: [200, 245, 399]}});
 //it will gives data excepts given values
 db.products.find({'price': {$nin: [200, 245, 399]}});
 ```
+
+## Introduction to Cursors:
+
+### Cursors:
+
+* Cursors in MongoDB are used to retrieve large result sets from queries efficiently, providing control over the data retrieval process.
+
+* MongoDB retrieves query results in batches using cursors.
+
+* Cursors are pointer to the result set on the server.
+
+* Cursors are used to iterate through query results.
+
+### Automatic Batching:
+
+* MongoDB retrieves query results in batches, not the entire result set at once.
+
+* The default batch size for the initial query is 101 documents (or fewer if the result set has less).
+
+* For subsequent batches, the default is 16 MB of data per batch (not a fixed number of documents).
+
+* This improves memory efficiency and network usage.
