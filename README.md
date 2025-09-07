@@ -408,5 +408,15 @@ db.products.find({'price': {$lt: 300}}).limit(5).sort({'price': 1});
 
 ### Example:
 ```js
+//and
 db.products.find({$and: [{'price': {$gt: 4000}}, {'ratings': {$gt: 4}}]});
+
+//or
+db.products.find({$or: [{'price': {$gt: 4000}}, {'ratings': {$gt: 4}}]});
+
+//not
+db.products.find({$not: {'price': {$gt: 4000}}});
+
+//nor
+db.products.find({$nor: [{'price': {$gt: 4000}}, {'ratings': {$gt: 4}}]});
 ```
