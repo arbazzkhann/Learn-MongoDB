@@ -380,3 +380,33 @@ db.products.find({'price': {$lt: 300}}).limit(5).skip(2);
 // 1 for ascending and -1 for descending
 db.products.find({'price': {$lt: 300}}).limit(5).sort({'price': 1});
 ```
+
+## Logical Operators:
+
+* $and : 
+  * true and true => true
+  * true and false => false
+  * false and true => false
+  * false and false => false
+
+* $or : 
+  * true or true => true
+  * true or false => true
+  * false or true => true
+  * false or false => false
+
+* $not : 
+  * false => true
+  * true => false
+
+* $nor (***not*** and ***or***) : 
+  * true nor true => false
+  * true nor false => false
+  * true nor false => false
+  * false nor false => true
+
+
+### Example:
+```js
+db.products.find({$and: [{'price': {$gt: 4000}}, {'ratings': {$gt: 4}}]});
+```
