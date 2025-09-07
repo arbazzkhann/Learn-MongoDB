@@ -354,3 +354,29 @@ db.products.find({'price': {$nin: [200, 245, 399]}});
 * For subsequent batches, the default is 16 MB of data per batch (not a fixed number of documents).
 
 * This improves memory efficiency and network usage.
+
+## Cursor Methods:
+
+* count(): counts number of documents. 
+
+* limit(): 
+
+* skip():
+
+* sort(): 
+
+### Examples:
+```js
+//count
+db.products.find({'price': {$lt: 300}}).count();
+
+//limit
+db.products.find({'price': {$lt: 300}}).limit(5);
+
+//skip
+db.products.find({'price': {$lt: 300}}).limit(5).skip(2);
+
+//limit 
+// 1 for ascending and -1 for descending
+db.products.find({'price': {$lt: 300}}).limit(5).sort({'price': 1});
+```
