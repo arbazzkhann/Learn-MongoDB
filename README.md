@@ -420,3 +420,20 @@ db.products.find({$not: {'price': {$gt: 4000}}});
 //nor
 db.products.find({$nor: [{'price': {$gt: 4000}}, {'ratings': {$gt: 4}}]});
 ```
+
+
+## Complex Expressions
+
+* The **$expr** operator allows using aggregation expressions within a query.
+
+* Useful when you need to compare fields from the same documents in a more complex manner.
+
+#### Syntax:
+```js
+{$expr: {operator: [field, value]}}
+```
+
+#### Example:
+```js
+db.products.find({$expr: {$gt: ['price', 40000]}});
+```
