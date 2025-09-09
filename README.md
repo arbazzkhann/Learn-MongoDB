@@ -433,7 +433,15 @@ db.products.find({$nor: [{'price': {$gt: 4000}}, {'ratings': {$gt: 4}}]});
 {$expr: {operator: [field, value]}}
 ```
 
-#### Example:
+#### Examples:
 ```js
 db.products.find({$expr: {$gt: ['price', 40000]}});
 ```
+
+Find sales where (Quantity * price) is greater then targetPrice:
+```js
+db.sales.find({$expr: [{$multiply: ['$quantity', '$price']}, '$targetPrice']});
+```
+
+
+
