@@ -444,4 +444,59 @@ db.sales.find({$expr: [{$multiply: ['$quantity', '$price']}, '$targetPrice']});
 ```
 
 
+## Elements Operators:
 
+* $exists: 
+
+* $type:
+
+* $size: 
+
+Syntax:
+```js
+//$exists
+{ field: {$exists: <boolean>} }
+```
+```js
+//$type
+{ field: {$type: "<bson_data_type>"} }
+
+//bson datatype:
+1: Double
+2: String
+3: Object
+4: Array
+5: Binary data
+6: Undefined
+7: ObjectId
+8: Boolean
+9: Date
+10: Null
+11: Regular Expression
+12: DBPointer
+13: Javascript
+14: Symbol
+15: JavaScript with scope
+16: int
+17: timestamp
+18: long
+19: decimal
+-1: minKey
+127: maxKey
+```
+```js
+//$size
+{ field: {$size: [array_length]} }
+```
+
+Example:
+```js
+//$exists
+db.products.find( { 'price': {$exists: true} } );
+
+//$type
+db.products.find( { 'price': {$type: 1} } ); // 1 is for double
+
+//$size
+db.products.find( { 'price': {$size: [1]} } );
+```
