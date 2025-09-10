@@ -500,3 +500,21 @@ db.products.find( { 'price': {$type: 1} } ); // 1 is for double
 //$size
 db.products.find( { 'price': {$size: [1]} } );
 ```
+
+
+## Projection:
+
+Projection specifying which fields to include or exclude in the query results.
+
+* To **include specific fields**, use projection with a **value of 1** for the fields you want. 
+
+* To **exclude fields**, use projection with a **value of 0** for the fields you want to exclude.
+
+* You ***cannot include and exclude fields simultaneously*** in the same query projection.
+
+* The **_id field is included by default** unless ***explicitly excluded***.
+
+Syntax:
+```js
+db._connection_name_.find({}, {field1: 1, field2: 1, ...});
+```
