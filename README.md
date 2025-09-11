@@ -554,3 +554,58 @@ Example:
 ```js
 db.comments.find({'comments.user': {$all: ['Arbaz', 'Khan']}});
 ```
+
+
+## Update Operations in MongoDB:
+
+* **updateOne()** and **updateMany()**.
+
+* **Removing** and **renaming** fields.
+
+* **Adding**, **removing items** from ***array***.
+
+* **Updating embedded documents**.
+
+1. **updateOne()**:
+
+Syntax:
+```js
+db.<collectionName>.updateOne(
+  {filter},
+  {$set: {"<existingField>": newValue, "newField": newValue, ...}}
+);
+```
+
+Example:
+```js
+//without adding new field
+db.products.updateOne(
+  {"_id": ObjectId('68c029c6877d92f7e7428df3')},
+  {$set: {"price": 5000}}
+  );
+
+//with adding new field
+db.products.updateOne(
+  {"_id": ObjectId('68c029c6877d92f7e7428df3')},  //filter
+  {$set: {"price": 5000, "newField": "newValue"}}  //updation
+);
+```
+
+
+
+2. **updateMany()**:
+
+Syntax:
+```js
+db.<collectionName>.updateMany(
+  {filter},
+  {$set: {"<existingField>": newValue, ...}}
+)
+```
+
+Example:
+```js
+db.products.updateMany(
+  {price: {$gt: 200}, price: {$lt: 500}},  //filter
+  {$set: {price: 20000}});  //updation
+```
