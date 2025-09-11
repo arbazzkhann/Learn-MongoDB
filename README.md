@@ -518,3 +518,18 @@ Syntax:
 ```js
 db._connection_name_.find({}, {field1: 1, field2: 1, ...});
 ```
+
+
+## Embedded Documents:
+
+* Query documents inside embedded documents using dot notation.
+
+Syntax:
+```js
+db.<collection_name>.find({"<parent>.<chind>": <value>});
+```
+
+Example:
+```js
+db.products.find({"comments.user": "Arbaz"});
+```
