@@ -566,7 +566,7 @@ db.comments.find({'comments.user': {$all: ['Arbaz', 'Khan']}});
 
 * **Updating embedded documents**.
 
-1. **updateOne()**:
+### 1. **updateOne()** and **$set**:
 
 Syntax:
 ```js
@@ -591,9 +591,7 @@ db.products.updateOne(
 );
 ```
 
-
-
-2. **updateMany()**:
+### 2. **updateMany()** and **$set**:
 
 Syntax:
 ```js
@@ -608,4 +606,27 @@ Example:
 db.products.updateMany(
   {price: {$gt: 200}, price: {$lt: 500}},  //filter
   {$set: {price: 20000}});  //updation
+```
+
+
+## Renaming and Renaming Fields:
+
+### $unset
+
+Syntax:
+```js
+db.<collection_name>.updateOne( 
+  {<filter>},
+  {$unset: {<fieldName>: 1}} 
+  );
+```
+
+### $rename
+
+Syntax:
+```js
+db.<collection_name>.updateOne(
+  {filter},
+  {$rename: {<oldFieldName>: "<newFieldName>"}}
+);
 ```
