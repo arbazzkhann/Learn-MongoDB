@@ -533,3 +533,24 @@ Example:
 ```js
 db.products.find({"comments.user": "Arbaz"});
 ```
+
+### $all vs $elemMatch
+
+* The **$all** operator selects the documents where the value of a field is an array that contains all the specified elements.
+
+Syntax:
+```js
+{<field>: {$all: [<value1>, <value2>, ...]}}
+```
+
+* The **$elemMatch** operator matches documents that contain an array field with at least one element that matches all the specified query criteria.
+
+Syntax:
+```js
+{<field>: {$elemMatch: {<query1>, <query2>, ...}}}
+```
+
+Example:
+```js
+db.comments.find({'comments.user': {$all: ['Arbaz', 'Khan']}});
+```
