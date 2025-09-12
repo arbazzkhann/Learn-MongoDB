@@ -630,3 +630,26 @@ db.<collection_name>.updateOne(
   {$rename: {<oldFieldName>: "<newFieldName>"}}
 );
 ```
+
+
+## Updating arrays and Embedded Documents:
+
+### $push
+
+Syntax:
+```js
+db.<collection_name>.updateOne(
+  {<filter>},
+  {$push: {<arrayField>: "new element"}}
+);
+```
+
+### $pop
+
+Syntax:
+```js
+db.<collection_name>.updateOne(
+  {<filter>},
+  {$pop: {<arrayField>: <value>}}
+);
+```
