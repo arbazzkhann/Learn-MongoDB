@@ -653,3 +653,22 @@ db.<collection_name>.updateOne(
   {$pop: {<arrayField>: <value>}}
 );
 ```
+
+### Update Values in Embedded Documents:
+
+Syntax:
+```js
+db.<collection_name>.updateOne(
+  {<filter>},
+  {$set: {"<field_name>.$.<field_name>": "new_value"}}
+);
+```
+
+Example:
+```js
+db.products.updateOne(
+  {"product_id": 23},
+  {$set: {"comments.$.text": "I am updated text"}}
+);
+```
+
