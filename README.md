@@ -672,3 +672,29 @@ db.products.updateOne(
 );
 ```
 
+
+## Delete Operations:
+
+### deleteOne()
+
+Syntax:
+```js
+db.<collection_name>.deleteOne({<filter>});
+```
+
+Example:
+```js
+db.products.deleteOne({"product_id": 23});
+```
+
+### deleteMany()
+
+Syntax:
+```js
+db.<collection_name>.deleteMany({<filter>});
+```
+
+Example:
+```js
+db.products.deleteMany({"price": {$gt: 40000}});
+```
