@@ -801,3 +801,16 @@ Example (regex search):
 ```js
 db.products.find( {field: {$regex: "air"}} );
 ```
+
+### When not to use Indexes?
+
+1. Indexes on Rarely Used Fields:
+    * If a field is seldom used in queries, indexing it only wastes storage and processing resources.
+
+2. Over-Indexing (Balancing Act):
+    * Every index consumes disk space and memory.
+    * Too many indexes can slow down write operations (insert/update/delete) and overall database performance.
+
+3. Small Collections:
+    * For small datasets, a collection scan is often faster than maintaining indexes.
+    * The maintenance overhead of indexes may outweigh the performance benefits.
