@@ -698,3 +698,16 @@ Example:
 ```js
 db.products.deleteMany({"price": {$gt: 40000}});
 ```
+
+
+## Indexes in MongoDB:
+
+### What are Indexes?
+
+Indexes are **specialized data structures** that **optimize data retrieval speed** in MongoDB.
+
+* Indexes **stores a fraction of data in a more searchable format**.
+
+* They enables MongoDB to **locate data faster *during queries***.
+
+* Indexes are **separate from collections** and **multiple indexes can exist per collection**.
