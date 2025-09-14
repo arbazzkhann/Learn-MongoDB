@@ -743,3 +743,61 @@ db.products.find( {name: "Mobile"} ).explain("executionStats");
 ```
 
 * Use it to **measure the time taken to execute a query**.
+
+
+### Managing Indexes:
+
+#### 1. Creating Indexes
+
+Syntax:
+```js
+db.<collection_name>.createIndex( {field: 1} );
+```
+
+* **1** → ascending order
+* **-1** → descending order
+
+Example:
+```js
+db.products.createIndex( {name: 1} );
+```
+
+
+#### 2. Viewing Indexes
+```js
+db.<collection_name>.getIndexes();
+```
+* **Note**: Every collection automatically has an index on ***_id***.
+
+
+#### 3. Dropping Indexes
+```js
+db.<collection_name>.dropIndex( {field: 1} );
+```
+
+#### 4. Special Index Types
+
+**(a) Unique Index**:
+
+Ensures values in a field are unique (no duplicates).
+```js
+db.<collection_name>.createIndex( {field: 1}, {unique: true} );
+```
+
+**(b) Text Index**:
+
+Used for text-based searches.
+```js
+db.<collection_name>.createIndex( {field: "text"} );
+```
+
+Searching with text index:
+```js
+db.<collection_name>.find( { $text: { $search: "keyword" } } );
+```
+
+
+Example (regex search):
+```js
+db.products.find( {field: {$regex: "air"}} );
+```
