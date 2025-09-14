@@ -722,3 +722,24 @@ Indexes are **specialized data structures** that **optimize data retrieval speed
 * **Improved Aggregation**: Agggregation operations becomes **more efficient with optimized indexes**.
 
 * **Indexing on Multiple Fields**: ***Complex queries*** can be ***executed efficiently*** by ***utilizing multiple fields in indexes***.
+
+
+### explain()
+
+* Use **explain()** method to understand query execution in details.
+
+Syntax:
+```js
+db.<collection_name>.find( {<filter>} ).explain(); 
+```
+
+Example:
+```js
+//
+db.products.find( {name: "Mobile"} ).explain();
+
+//
+db.products.find( {name: "Mobile"} ).explain("executionStats");
+```
+
+* Use it to **measure the time taken to execute a query**.
