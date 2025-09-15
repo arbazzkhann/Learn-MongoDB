@@ -357,13 +357,13 @@ db.products.find({'price': {$nin: [200, 245, 399]}});
 
 ## Cursor Methods:
 
-* count(): counts number of documents. 
+* count(): Returns the number of documents that match the query
 
-* limit(): 
+* limit(): Limits the number of documents returned.
 
-* skip():
+* skip(): Skips the given number of documents from the result.
 
-* sort(): 
+* sort(): Sorts documents in ascending (1) or descending (-1) order.
 
 ### Examples:
 ```js
@@ -814,3 +814,4 @@ db.products.find( {field: {$regex: "air"}} );
 3. Small Collections:
     * For small datasets, a collection scan is often faster than maintaining indexes.
     * The maintenance overhead of indexes may outweigh the performance benefits.
+
