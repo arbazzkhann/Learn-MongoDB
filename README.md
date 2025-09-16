@@ -815,3 +815,97 @@ db.products.find( {field: {$regex: "air"}} );
     * For small datasets, a collection scan is often faster than maintaining indexes.
     * The maintenance overhead of indexes may outweigh the performance benefits.
 
+
+## Aggregation:
+
+### What is Aggregation?
+
+* **Definition**: Aggregation is the process of ***performing transformations on documents*** and ***combining them to produce computed results***.
+* It **Groups the data** from **multiple documents into a single document** based on the specified expression.
+
+* **Pipeline Stages**: Aggregation consists of ***multiple pipeline stages***, ***each performing a specific operations*** on the input data.
+
+* **Benefits**:
+    * **Aggregating Data**: Complex calculations and operations are possible.
+    * **Advanced Transformations**: Data can be combined, reshaped, and computed for insights.
+    * **Efficient Processing**: Aggregation handles large datasets efficiently.
+
+
+### Aggregation Pipeline:
+* The aggregation process in MongoDB consists of several stages, each stage transforming the data in some way.
+
+* The **output of the one stage is fed as the input of the next stage**, and so on, ***until the final stage produces the desired result***.
+
+* MongoDB provides several built-in aggregation pipeline stages to perform various operations on the data, such as ***$group***, ***$sum***, ***$avg***, ***$min***, ***$max***, etc.
+
+#### Syntax:
+```js
+db.<collection_name>.aggregate(<pipeline>, <options>);
+```
+
+**pipeline**: Array of different operations.
+
+#### Examples:
+```js
+db.products.aggregate([{
+    $match: {
+      name: "Headphones"
+    }
+  }]);
+```
+
+
+
+
+
+
+
+
+
+<!-- ### $match:
+The **$match** stage filters documents based on specified conditions.
+
+Syntax:
+```js
+{$match: { <query> }}
+```
+
+Example:
+```js
+db.products.aggregate([
+  {$match: {product_id: 23}}
+]);
+```
+
+### $group
+Theh **$group** stage groups documents by specified fields and performs aggregate operations on grouped data.
+
+Syntax:
+```js
+{
+  $group: {
+    _id: <expression>, //group key
+    <field1>: {<accumulator1>: <expression1>},
+    ...
+  }
+}
+```
+
+Example:
+```js
+//Finding Total Products
+db.products.aggregate([
+  {$group: {
+    _id: "$brand, 
+    totalProducts: {$sum: 1}
+  }}
+]);
+
+//Total Price
+db.products.aggregate([
+  {$group: {
+    _id: {comp: "$brand"}, 
+    totalProducts: {$sum: 1}
+  }}
+]);
+``` -->
