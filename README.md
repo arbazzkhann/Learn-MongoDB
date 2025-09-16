@@ -831,7 +831,7 @@ db.products.find( {field: {$regex: "air"}} );
     * **Efficient Processing**: Aggregation handles large datasets efficiently.
 
 
-### Aggregation Pipeline:
+## Aggregation Pipeline:
 * The aggregation process in MongoDB consists of several stages, each stage transforming the data in some way.
 
 * The **output of the one stage is fed as the input of the next stage**, and so on, ***until the final stage produces the desired result***.
@@ -853,6 +853,30 @@ db.products.aggregate([{
     }
   }]);
 ```
+
+### $group:
+
+* The **$group** operator groups documents by the age field, creating a new document for each unique age value.
+
+* The ***_id*** field in the group stage specifies the field based on which the documents will be grouped.
+
+
+Syntax:
+```js
+$group: {
+  _id: <expression>,
+  field1: <expression>,
+  field2: <epression2>,
+  ...
+}
+```
+
+Example:
+```js
+//group document related to "brand"
+db.products.aggregate([ { $group: {_id: "$brand"} } ])
+```
+
 
 
 
