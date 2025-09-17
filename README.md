@@ -871,15 +871,14 @@ $group: {
 }
 ```
 
-Example:
+**Question**: Group teachers by age and show all teachers names per age group.
 ```js
-//group document related to "brand"
-db.products.aggregate([ { $group: {_id: "$brand"} } ])
+db.teachers.aggregate([{$group: {_id: "$age", names: {$push: "$name"}}}])
 ```
 
-
+**Question**: Group teachers by age and show all teachers whole document as per group.
 ```js
-db.products.aggregate([ { $group: {_id: "$brand", product: {$push: "$$ROOT"}} } ]
+db.teachers.aggregate([{$group: {_id: "$age", wholeDocument: {$push: "$$ROOT"}}}]);
 ```
 * **$$ROOT** value is a reference to the current document, represented the ***complete document***.
 
