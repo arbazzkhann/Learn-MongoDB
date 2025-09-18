@@ -871,16 +871,42 @@ $group: {
 }
 ```
 
+---
+
 **Question**: Group teachers by age and show all teachers names per age group.
 ```js
 db.teachers.aggregate([{$group: {_id: "$age", names: {$push: "$name"}}}])
 ```
+
+---
 
 **Question**: Group teachers by age and show all teachers whole document as per group.
 ```js
 db.teachers.aggregate([{$group: {_id: "$age", wholeDocument: {$push: "$$ROOT"}}}]);
 ```
 * **$$ROOT** value is a reference to the current document, represented the ***complete document***.
+
+---
+
+**Question**: Give a count per age of male teacher.
+```js
+db.teachers.aggregate([
+  {$match: {gender: "male"}},
+  {$group: {_id: "$age", number: {$sum: 1}}}
+])
+```
+The value of $sum is 1, which means that for each document in the group, the value of "number" will be incremented by 1
+
+---
+
+**Question**: Give a count per age of male students and sort them by count in descending manner.
+```js
+db.teachers.aggregate([
+  {$match: {gender: "male"}},
+  {$group: {_id: "$age", count: {$sum: 1}}},
+  {$sort: {count: -1}}
+]);
+```
 
 
 
