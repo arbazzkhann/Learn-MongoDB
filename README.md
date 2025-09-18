@@ -843,7 +843,8 @@ db.products.find( {field: {$regex: "air"}} );
 db.<collection_name>.aggregate(<pipeline>, <options>);
 ```
 
-**pipeline**: Array of different operations.
+* **pipeline**: Array of different operations (objects).
+* We can ***create pipeline as much as we want***.
 
 #### Examples:
 ```js
@@ -907,6 +908,16 @@ db.teachers.aggregate([
   {$sort: {count: -1}}
 ]);
 ```
+
+---
+
+**Question**:
+```js
+db.teacher.aggregate([
+  {$group: {_id: null, averageAge: {$avg: "$age"}}}
+])
+```
+* If **_id: null** in the $group operator, it means that all the documents in the collection will be grouped together into a ***single group***.
 
 
 
